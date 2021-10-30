@@ -95,16 +95,9 @@
                                 <div class="main-menu text-center d-none d-lg-block">
                                     <nav>                                                
                                         <ul id="navigation">                                                                                                                                     
-                                            <li><a href="{% url 'category' %}">Lifestyle</a></li>
-                                            <li><a href="{% url 'category' %}">Business</a></li>
-                                            <li><a href="{% url 'category' %}">Fashion</a></li>
-                                            <li><a href="{% url 'category' %}">Design</a></li>
-                                            <li><a href="{% url 'category' %}">Health</a></li>
-                                            <li><a href="{% url 'category' %}">Harmful</a></li>
-                                            <li><a href="{% url 'category' %}">Technology</a></li>
-                                            <li><a href="{% url 'category' %}">Travel</a></li>
-                                            <li><a href="{% url 'category' %}">Food</a></li>
-                                            <li><a href="{% url 'category' %}">Creative</a></li>
+                                            {% for index in Categorys %}                                                                                                                               
+                                                <li><a href="/category/{{index.id}}">{{index.title}}</a></li>
+                                            {% endfor %} 
                                         </ul>
                                     </nav>
                                 </div>
@@ -149,97 +142,21 @@
                 </div>
                 <div class="row justify-content-lg-between">
                     <div class="col-lg-8 col-md-8">
+                    {% for index in top_Post %}
                         <!-- single-job-content -->
                         <div class="single-job-items mb-30">
                             <div class="job-items">
                                 <div class="company-img">
-                                    <a href="{% url 'post-details' %}"><img src="{% static '' %}assets/img/gallery/top-psot1.png" alt=""></a>
+                                    <a href="/post-details/{{index.id}}"><img src="/media/{{index.image}}" alt=""></a>
                                 </div>
                                 <div class="job-tittle">
                                     <span>Trending</span>
-                                    <a href="{% url 'post-details' %}"><h4>The pomelo case: scope of plant variety rights in China</h4></a>
-                                    <p>We present things in a way that isn’t sensational, said Ms. Cham mavanijakul, 20, whose family has roots...</p>
+                                    <a href="/post-details/{{index.id}}"><h4>{{index.title}}</h4></a>
+                                    <p>{{index.detail_view}}...</p> 
                                 </div>
                             </div>
                         </div>
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                  <a href="{% url 'post-details' %}"><img src="{% static '' %}assets/img/gallery/top-psot2.png" alt=""></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <span>Trending</span>
-                                    <a href="{% url 'post-details' %}"><h4>The pomelo case: scope of plant variety rights in China</h4></a>
-                                    <p>We present things in a way that isn’t sensational, said Ms. Cham mavanijakul, 20, whose family has roots...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                  <a href="{% url 'post-details' %}"><img src="{% static '' %}assets/img/gallery/top-psot3.png" alt=""></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <span>Trending</span>
-                                    <a href="{% url 'post-details' %}"><h4>The pomelo case: scope of plant variety rights in China</h4></a>
-                                    <p>We present things in a way that isn’t sensational, said Ms. Cham mavanijakul, 20, whose family has roots...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                  <a href="{% url 'post-details' %}"><img src="{% static '' %}assets/img/gallery/top-psot4.png" alt=""></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <span>Trending</span>
-                                    <a href="{% url 'post-details' %}"><h4>The pomelo case: scope of plant variety rights in China</h4></a>
-                                    <p>We present things in a way that isn’t sensational, said Ms. Cham mavanijakul, 20, whose family has roots...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                  <a href="{% url 'post-details' %}"><img src="{% static '' %}assets/img/gallery/top-psot5.png" alt=""></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <span>Trending</span>
-                                    <a href="{% url 'post-details' %}"><h4>The pomelo case: scope of plant variety rights in China</h4></a>
-                                    <p>We present things in a way that isn’t sensational, said Ms. Cham mavanijakul, 20, whose family has roots...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                  <a href="{% url 'post-details' %}"><img src="{% static '' %}assets/img/gallery/top-psot2.png" alt=""></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <span>Trending</span>
-                                    <a href="{% url 'post-details' %}"><h4>The pomelo case: scope of plant variety rights in China</h4></a>
-                                    <p>We present things in a way that isn’t sensational, said Ms. Cham mavanijakul, 20, whose family has roots...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                  <a href="{% url 'post-details' %}"><img src="{% static '' %}assets/img/gallery/top-psot3.png" alt=""></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <span>Trending</span>
-                                    <a href="{% url 'post-details' %}"><h4>The pomelo case: scope of plant variety rights in China</h4></a>
-                                    <p>We present things in a way that isn’t sensational, said Ms. Cham mavanijakul, 20, whose family has roots...</p>
-                                </div>
-                            </div>
-                        </div>
+                    {% endfor %}
                     </div>
                     <div class="col-lg-3 col-md-3">
                         <div class="google-add mb-40">
@@ -279,32 +196,32 @@
                         <div class="news-slider-active">
                             <div class="single-news-slider">
                                 <div class="news-img">
-                                    <img src="{% static '' %}assets/img/gallery/news-slider1.png" alt="">
+                                    <a href="/category/1"><img src="{% static '' %}assets/img/gallery/news-slider1.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="single-news-slider">
                                 <div class="news-img">
-                                    <img src="{% static '' %}assets/img/gallery/news-slider2.png" alt="">
+                                    <a href="/category/2"><img src="{% static '' %}assets/img/gallery/news-slider2.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="single-news-slider">
                                 <div class="news-img">
-                                    <img src="{% static '' %}assets/img/gallery/news-slider3.png" alt="">
+                                    <a href="/category/3"><img src="{% static '' %}assets/img/gallery/news-slider3.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="single-news-slider">
                                 <div class="news-img">
-                                    <img src="{% static '' %}assets/img/gallery/news-slider4.png" alt="">
+                                    <a href="/category/4"><img src="{% static '' %}assets/img/gallery/news-slider4.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="single-news-slider">
                                 <div class="news-img">
-                                    <img src="{% static '' %}assets/img/gallery/news-slider1.png" alt="">
+                                    <a href="/category/1"><img src="{% static '' %}assets/img/gallery/news-slider1.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="single-news-slider">
                                 <div class="news-img">
-                                    <img src="{% static '' %}assets/img/gallery/news-slider2.png" alt="">
+                                    <a href="/category/2"><img src="{% static '' %}assets/img/gallery/news-slider2.png" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -323,49 +240,24 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
+                    {% for index1 in last_Post %}
                     <div class="col-lg-4 col-md-6">
                         <div class="single-baner-nw2 mb-30">
                             <div class="banner-img-cap2">
                                 <div class="banner-img">
-                                    <img src="{% static '' %}assets/img/gallery/trend1.png" alt="">
+                                    <img src="/media/{{index1.image}}" alt="">
                                 </div>
                                 <div class="banner-cap2">
                                     <p>Technology</p>
-                                    <h3><a href="{% url 'post-details' %}">The pomelo case: scope of plant rights in China</a></h3>
-                                    <p class="blog-text" style="text-transform: normal !important;">Indie folks start out by making something they want to read, that tell stories they want told..</p>
+                                    <h3><a href="/post-details/{{index1.id}}">{{index1.title}}</a></h3>
+                                    <p class="blog-text" style="text-transform: normal !important;">{{index1.detail_view}}..</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-baner-nw2 mb-30">
-                            <div class="banner-img-cap2">
-                                <div class="banner-img">
-                                    <img src="{% static '' %}assets/img/gallery/trend2.png" alt="">
-                                </div>
-                                <div class="banner-cap2">
-                                    <p>Technology</p>
-                                   <h3><a href="{% url 'post-details' %}">The pomelo case: scope of plant rights in China</a></h3>
-                                    <p class="blog-text" style="text-transform: normal !important;">Indie folks start out by making something they want to read, that tell stories they want told..</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-baner-nw2 mb-30">
-                            <div class="banner-img-cap2">
-                                <div class="banner-img">
-                                    <img src="{% static '' %}assets/img/gallery/trend3.png" alt="">
-                                </div>
-                                <div class="banner-cap2">
-                                    <p>Technology</p>
-                                   <h3><a href="{% url 'post-details' %}">The pomelo case: scope of plant rights in China</a></h3>
-                                    <p class="blog-text" style="text-transform: normal !;">Indie folks start out by making something they want to read, that tell stories they want told..</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -439,16 +331,9 @@
                                     <div class="main-menu text-center">
                                         <nav>                                                
                                             <ul>                                                                                                                                     
-                                                <li><a href="{% url 'category' %}">Lifestyle</a></li>
-                                                <li><a href="{% url 'category' %}">Business</a></li>
-                                                <li><a href="{% url 'category' %}">Fashion</a></li>
-                                                <li><a href="{% url 'category' %}">Design</a></li>
-                                                <li><a href="{% url 'category' %}">Health</a></li>
-                                                <li><a href="{% url 'category' %}">Harmful</a></li>
-                                                <li><a href="{% url 'category' %}">Technology</a></li>
-                                                <li><a href="{% url 'category' %}">Travel</a></li>
-                                                <li><a href="{% url 'category' %}">Food</a></li>
-                                                <li><a href="{% url 'category' %}">Creative</a></li>
+                                                {% for index in Categorys %}                                                                                                                               
+                                                <li><a href="/category/{{index.id}}">{{index.title}}</a></li>
+                                                {% endfor %} 
                                             </ul>
                                         </nav>
                                     </div>
