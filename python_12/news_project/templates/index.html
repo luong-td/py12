@@ -119,83 +119,21 @@
         <div class="banner-news">
             <div class="container-fluid p-0">
                 <div class="banner-slider-active no-gutters ">
+                    {% for index in Trending %}
                     <div class="single-sliders">
                         <div class="single-baner-nw mb-30 text-center">
                             <div class="banner-img-cap">
                                 <div class="banner-img">
-                                    <img src="{% static '' %}assets/img/gallery/banner-cap1.png" alt="">
-                                    <!--video iocn -->
-                                    <div class="video-icon">
-                                        <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0" data-animation="bounceIn" data-delay=".4s"><i class="fas fa-play"></i></a>
-                                    </div>
+                                    <img src="/media/{{index.image}}" alt="" style="width:359px; height:383px">
                                 </div>
                                 <div class="banner-cap">
                                     <p>Trending</p>
-                                    <h3><a href="#">Calling time on irresponsible junk food advertising to children</a></h3>
+                                    <h3><a href="/post-details/{{index.id}}">{{index.title}}</a></h3>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="single-sliders">
-                        <div class="single-baner-nw mb-30 text-center">
-                            <div class="banner-img-cap">
-                                <div class="banner-img">
-                                    <img src="{% static '' %}assets/img/gallery/banner-cap2.png" alt="">
-                                </div>
-                                <div class="banner-cap">
-                                    <p>Trending</p>
-                                   <h3><a href="post-details/0">The pomelo case: scope of plant variety rights in China</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-sliders">
-                        <div class="single-baner-nw mb-30 text-center">
-                            <div class="banner-img-cap">
-                                <div class="banner-img">
-                                    <img src="{% static '' %}assets/img/gallery/banner-cap3.png" alt="">
-                                    <!--video iocn -->
-                                    <div class="video-icon">
-                                        <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0" data-animation="bounceIn" data-delay=".4s"><i class="fas fa-play"></i></a>
-                                    </div>
-                                </div>
-                                <div class="banner-cap">
-                                    <p>Trending</p>
-                                    <h3><a href="#">Valuable lessons to take away from COVID-19</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-sliders">
-                        <div class="single-baner-nw mb-30 text-center">
-                            <div class="banner-img-cap">
-                                <div class="banner-img">
-                                    <img src="{% static '' %}assets/img/gallery/banner-cap4.png" alt="">
-                                </div>
-                                <div class="banner-cap">
-                                    <p>Trending</p>
-                                    <h3><a href="#">Building on consumer preferences shaped by the pandemic</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-sliders">
-                        <div class="single-baner-nw mb-30 text-center">
-                            <div class="banner-img-cap">
-                                <div class="banner-img">
-                                    <img src="{% static '' %}assets/img/gallery/banner-cap2.png" alt="">
-                                    <!--video iocn -->
-                                    <div class="video-icon">
-                                        <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0" data-animation="bounceIn" data-delay=".4s"><i class="fas fa-play"></i></a>
-                                    </div>
-                                </div>
-                                <div class="banner-cap">
-                                    <p>Trending</p>
-                                    <h3><a href="#">Building on consumer preferences shaped by the pandemic</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -219,10 +157,10 @@
                                 <div class="single-slider">
                                     <div class="trending-top mb-30">
                                         <div class="trend-top-img text-center">
-                                            <img src="{% static '' %}assets/img/gallery/latest-post.png" alt="">
+                                            <img src="/media/{{Latest_post_1.image}}" alt="">
                                             <div class="trend-top-cap">
-                                                <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">Design</span>
-                                                <h2><a href="post-details/0" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">Calling time on irresponsible junk food advertising to children</a></h2>
+                                                <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">{{Latest_post_1.category}}</span>
+                                                <h2><a href="/post-details/{{Latest_post_1.id}}" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{Latest_post_1.title}}</a></h2>
                                             </div>
                                         </div>
                                     </div>
@@ -231,10 +169,10 @@
                                 <div class="single-slider">
                                     <div class="trending-top mb-30">
                                         <div class="trend-top-img text-center">
-                                            <img src="{% static '' %}assets/img/gallery/latest-post.png" alt="">
+                                            <img src="/media/{{Latest_post_1.image}}" alt="">
                                             <div class="trend-top-cap">
-                                                <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">Design</span>
-                                                <h2><a href="post-details/0"  data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">Calling time on irresponsible junk food advertising to children</a></h2>
+                                                <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">{{Latest_post_1.category}}</span>
+                                                <h2><a href="post-details/{{Latest_post_1.id}}"  data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{Latest_post_1.title}}</a></h2>
                                             </div>
                                         </div>
                                     </div>
@@ -249,7 +187,7 @@
                                 <div class="single-baner-nw2 mb-30 ">
                                     <div class="banner-img-cap2">
                                         <div class="banner-img">
-                                            <img src="{% static '' %}assets/img/gallery/latest-post2.png" alt="">
+                                            <img src="/media/{{Latest_post_2.image}}" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -259,8 +197,8 @@
                                     <div class="banner-img-cap2">
                                         <div class="banner-cap2 banner-cap3">
                                             <p>Trending</p>
-                                           <h3><a href="post-details/0">The pomelo case: scope of plant variety rights in China</a></h3>
-                                            <p class="normal">Passion for their subjects from the subtleties of regional Thai home cooking to the intersection of food and queer culture.</p>
+                                           <h3><a href="/post-details/{{Latest_post_2.id}}">{{Latest_post_2.title}}</a></h3>
+                                            <p class="normal">{{Latest_post_2.detail_view}}...</p>
                                         </div>
                                     </div>
                                 </div>
@@ -269,9 +207,9 @@
                                 <div class="single-baner-nw2 mb-30">
                                     <div class="banner-img-cap2">
                                         <div class="banner-cap2 banner-cap3">
-                                            <p>Technology</p>
-                                            <h3><a href="post-details/0">Valuable lessons to take away from COVID-19</a></h3>
-                                            <p  class="normal">Passion for their subjects from the subtleties of regional Thai home cooking to the intersection of food and queer culture.</p>
+                                            <p>{{Latest_post_3.category}}</p>
+                                            <h3><a href="/post-details/{{Latest_post_3.id}}">{{Latest_post_3.title}}</a></h3>
+                                            <p  class="normal">{{Latest_post_3.detail_view}}...</p>
                                         </div>
                                     </div>
                                 </div>
@@ -280,7 +218,7 @@
                                 <div class="single-baner-nw2 mb-30 ">
                                     <div class="banner-img-cap2">
                                         <div class="banner-img">
-                                            <img src="{% static '' %}assets/img/gallery/latest-post02.png" alt="">
+                                            <img src="/media/{{Latest_post_3.image}}" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -291,11 +229,11 @@
                         <div class="single-baner-nw2 mb-30 text-center">
                             <div class="banner-img-cap2">
                                 <div class="banner-img">
-                                    <img src="{% static '' %}assets/img/gallery/latest-post3.png" alt="">
+                                    <img src="/media/{{Latest_post_4.image}}" alt="">
                                 </div>
                                 <div class="banner-cap2">
-                                    <p>Technology</p>
-                                    <h3><a href="post-details/0">Calling time on irresponsible junk food advertising to children</a></h3>
+                                    <p>{{Latest_post_4.category}}</p>
+                                    <h3><a href="/post-details/{{Latest_post_4.id}}">{{Latest_post_4.title}}</a></h3>
                                 </div>
                             </div>
                         </div>
@@ -304,11 +242,11 @@
                         <div class="single-baner-nw2 mb-30 text-center">
                             <div class="banner-img-cap2">
                                 <div class="banner-img">
-                                    <img src="{% static '' %}assets/img/gallery/latest-post4.png" alt="">
+                                    <img src="/media/{{Latest_post_5.image}}" alt="">
                                 </div>
                                 <div class="banner-cap2">
-                                    <p>Design</p>
-                                    <h3><a href="post-details/0">Researchers control cattle microbiome  to reduce greenhouse gases</a></h3>
+                                    <p>{{Latest_post_5.category}}</p>
+                                    <h3><a href="/post-details/{{Latest_post_5.id}}">{{Latest_post_5.title}}</a></h3>
                                 </div>
                             </div>
                         </div>
@@ -435,71 +373,21 @@
                 </div>
                 <div class="row justify-content-lg-between">
                     <div class="col-lg-8 col-md-8">
+                        {% for index in Top_post %}
                         <!-- single-job-content -->
                         <div class="single-job-items mb-30">
                             <div class="job-items">
                                 <div class="company-img">
-                                    <a href="#"><img src="{% static '' %}assets/img/gallery/top-psot1.png" alt=""></a>
+                                    <a href="#"><img src="/media/{{index.image}}" alt=""></a>
                                 </div>
                                 <div class="job-tittle">
                                     <span>Trending</span>
-                                    <a href="post-details/0"><h4>The pomelo case: scope of plant variety rights in China</h4></a>
-                                    <p>We present things in a way that isn’t sensational, said Ms. Cham mavanijakul, 20, whose family has roots...</p>
+                                    <a href="/post-details/{{index.id}}"><h4>{{index.title}}</h4></a>
+                                    <p>{{index.detail_view}}...</p>
                                 </div>
                             </div>
                         </div>
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                    <a href="#"><img src="{% static '' %}assets/img/gallery/top-psot2.png" alt=""></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <span>Trending</span>
-                                    <a href="post-details/0"><h4>The pomelo case:scope of plant variety rights in China</h4></a>
-                                    <p>We present things in a way that isn’t sensational, said Ms. Cham mavanijakul, 20, whose family has roots...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                    <a href="#"><img src="{% static '' %}assets/img/gallery/top-psot3.png" alt=""></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <span>Trending</span>
-                                    <a href="post-details/0"><h4>The pomelo case:scope of plant variety rights in China</h4></a>
-                                    <p>We present things in a way that isn’t sensational, said Ms. Cham mavanijakul, 20, whose family has roots...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                    <a href="#"><img src="{% static '' %}assets/img/gallery/top-psot4.png" alt=""></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <span>Trending</span>
-                                    <a href="post-details/0"><h4>The pomelo case:scope of plant variety rights in China</h4></a>
-                                    <p>We present things in a way that isn’t sensational, said Ms. Cham mavanijakul, 20, whose family has roots...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                    <a href="#"><img src="{% static '' %}assets/img/gallery/top-psot5.png" alt=""></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <span>Trending</span>
-                                    <a href="post-details/0"><h4>The pomelo case:scope of plant variety rights in China</h4></a>
-                                    <p>We present things in a way that isn’t sensational, said Ms. Cham mavanijakul, 20, whose family has roots...</p>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <div class="col-lg-3 col-md-3">
                         <div class="google-add mb-40">
@@ -521,48 +409,22 @@
                     </div>
                 </div>
                 <div class="row">
+                    {% for index in Latest_post %}
                     <div class="col-lg-4 col-md-6">
                         <div class="single-baner-nw2 mb-30">
                             <div class="banner-img-cap2">
                                 <div class="banner-img">
-                                    <img src="{% static '' %}assets/img/gallery/trend1.png" alt="">
+                                    <img src="/media/{{index.image}}" alt="">
                                 </div>
                                 <div class="banner-cap2">
-                                    <p>Technology</p>
-                                   <h3><a href="post-details/0">The pomelo case: scope of plant rights in China</a></h3>
-                                    <p class="blog-text" style="text-transform: normal !important;">Indie folks start out by making something they want to read, that tell stories they want told..</p>
+                                    <p>{{index.category}}</p>
+                                   <h3><a href="/post-details/{{index.id}}">{{index.title}}</a></h3>
+                                    <p class="blog-text" style="text-transform: normal !important;">{{index.detail_view}}...</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-baner-nw2 mb-30">
-                            <div class="banner-img-cap2">
-                                <div class="banner-img">
-                                    <img src="{% static '' %}assets/img/gallery/trend2.png" alt="">
-                                </div>
-                                <div class="banner-cap2">
-                                    <p>Technology</p>
-                                   <h3><a href="post-details/0">The pomelo case: scope of plant rights in China</a></h3>
-                                    <p class="blog-text" style="text-transform: normal !important;">Indie folks start out by making something they want to read, that tell stories they want told..</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-baner-nw2 mb-30">
-                            <div class="banner-img-cap2">
-                                <div class="banner-img">
-                                    <img src="{% static '' %}assets/img/gallery/trend3.png" alt="">
-                                </div>
-                                <div class="banner-cap2">
-                                    <p>Technology</p>
-                                   <h3><a href="post-details/0">The pomelo case: scope of plant rights in China</a></h3>
-                                    <p class="blog-text" style="text-transform: normal !;">Indie folks start out by making something they want to read, that tell stories they want told..</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
