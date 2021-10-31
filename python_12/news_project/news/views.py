@@ -132,19 +132,26 @@ def feedback(request):
     return redirect('/contact')
 
 def search(request):
+
+    news = New.objects.all()
+    last_post = []
+        
+    for i in range(len(news)-1, -1, -1):
+        if len(last_post) < 3:
+            last_post.append(news[i])
+
     print(request.method)
     if request.method == 'GET':
         try:
             search = request.GET['search'].lower().split()
         except:
             return redirect('/')
-            
-        news = New.objects.all()
+
         res  = []
         for new in news:
             for text in search:
                 if text in new.title.lower():
                     res.append(new)
                     break
-        return render(request,'search.html', {'news':res, 'search':request.GET['search']})
-    return redirect('/')
+        return render(request,'search.html', {'news':res, 'search':request.GET['search'], 'last_Post' : last_post})
+    return redirect('/', {'last_Post' : last_post})
