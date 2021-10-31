@@ -96,16 +96,9 @@
                                 <div class="main-menu text-center d-none d-lg-block">
                                     <nav>                                                
                                         <ul id="navigation">                                                                                                                                     
-                                            <li><a href="{% url 'category' %}">Lifestyle</a></li>
-                                            <li><a href="{% url 'category' %}">Business</a></li>
-                                            <li><a href="{% url 'category' %}">Fashion</a></li>
-                                            <li><a href="{% url 'category' %}">Design</a></li>
-                                            <li><a href="{% url 'category' %}">Health</a></li>
-                                            <li><a href="{% url 'category' %}">Harmful</a></li>
-                                            <li><a href="{% url 'category' %}">Technology</a></li>
-                                            <li><a href="{% url 'category' %}">Travel</a></li>
-                                            <li><a href="{% url 'category' %}">Food</a></li>
-                                            <li><a href="{% url 'category' %}">Creative</a></li>
+                                            {% for index in Categorys %}                                                                                                                               
+                                                <li><a href="/category/{{index.id}}">{{index.title}}</a></li>
+                                            {% endfor %} 
                                         </ul>
                                     </nav>
                                 </div>
@@ -145,33 +138,36 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="details-img mb-40">
-                            <img class="img-fluid" src="{% static '' %}assets/img/gallery/post_details.png" alt="">
+                            {% comment %} <img class="img-fluid" src="/media/{{new.image}}" alt=""> {% endcomment %}
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="about-details-cap">
-                        <h2>Calling time on irresponsible junk  food advertising to children</h2>
+                        <h2>{{new.title}}</h2>
                         </div>
                     </div>
                     <div class="col-lg-10">
                         <div class="about-details-cap">
-                        <p class="mb-30">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                        {% comment %} <p class="mb-30">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
 
                         <p class="mb-30">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
 
                         <p class="mb-50">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                         {% endcomment %}
+
+                        <p class="mb-30">{{new.detail | safe}}</p>
                         </div>
                     </div>
                     <div class="col-lg-10">
                         <div class="about-details-cap">
-                            <h3>Calling time on irresponsible junk  food advertising to children</h3>
+                            {% comment %} <h3>Calling time on irresponsible junk  food advertising to children</h3>
                             <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
                             <div class="details-img">
                                 <img class="img-fluid mb-15" src="{% static '' %}assets/img/gallery/post_details2.png" alt="">
                                 <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                            </div>
+                            </div> {% endcomment %}
                             <!-- Socaial -->
                             <div class="social-iocn pt-20 pb-20">
                                 <a href="#"><img class="mr-10 mb-10" src="{% static '' %}assets/img/gallery/facebook.png" alt=""></a>
@@ -299,7 +295,7 @@
                                 </div>
                                 <div class="banner-cap2">
                                     <p>Technology</p>
-                                   <h3><a href="{% url 'post-details' %}">The pomelo case: scope of plant rights in China</a></h3>
+                                   <h3><a href="post-details/0">The pomelo case: scope of plant rights in China</a></h3>
                                     <p class="blog-text" style="text-transform: normal !important;">Indie folks start out by making something they want to read, that tell stories they want told..</p>
                                 </div>
                             </div>
@@ -313,7 +309,7 @@
                                 </div>
                                 <div class="banner-cap2">
                                     <p>Technology</p>
-                                   <h3><a href="{% url 'post-details' %}">The pomelo case: scope of plant rights in China</a></h3>
+                                   <h3><a href="post-details/0">The pomelo case: scope of plant rights in China</a></h3>
                                     <p class="blog-text" style="text-transform: normal !important;">Indie folks start out by making something they want to read, that tell stories they want told..</p>
                                 </div>
                             </div>
@@ -327,7 +323,7 @@
                                 </div>
                                 <div class="banner-cap2">
                                     <p>Technology</p>
-                                   <h3><a href="{% url 'post-details' %}">The pomelo case: scope of plant rights in China</a></h3>
+                                   <h3><a href="post-details/0">The pomelo case: scope of plant rights in China</a></h3>
                                     <p class="blog-text" style="text-transform: normal !;">Indie folks start out by making something they want to read, that tell stories they want told..</p>
                                 </div>
                             </div>
@@ -405,16 +401,9 @@
                                     <div class="main-menu text-center">
                                         <nav>                                                
                                             <ul>                                                                                                                                     
-                                                <li><a href="{% url 'category' %}">Lifestyle</a></li>
-                                                <li><a href="{% url 'category' %}">Business</a></li>
-                                                <li><a href="{% url 'category' %}">Fashion</a></li>
-                                                <li><a href="{% url 'category' %}">Design</a></li>
-                                                <li><a href="{% url 'category' %}">Health</a></li>
-                                                <li><a href="{% url 'category' %}">Harmful</a></li>
-                                                <li><a href="{% url 'category' %}">Technology</a></li>
-                                                <li><a href="{% url 'category' %}">Travel</a></li>
-                                                <li><a href="{% url 'category' %}">Food</a></li>
-                                                <li><a href="{% url 'category' %}">Creative</a></li>
+                                                {% for index in Categorys %}                                                                                                                               
+                                                <li><a href="/category/{{index.id}}">{{index.title}}</a></li>
+                                                {% endfor %} 
                                             </ul>
                                         </nav>
                                     </div>

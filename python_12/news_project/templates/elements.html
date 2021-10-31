@@ -92,16 +92,9 @@
                                 <div class="main-menu text-center d-none d-lg-block">
                                     <nav>                                                
                                         <ul id="navigation">                                                                                                                                     
-                                            <li><a href="{% url 'category' %}">Lifestyle</a></li>
-                                            <li><a href="{% url 'category' %}">Business</a></li>
-                                            <li><a href="{% url 'category' %}">Fashion</a></li>
-                                            <li><a href="{% url 'category' %}">Design</a></li>
-                                            <li><a href="{% url 'category' %}">Health</a></li>
-                                            <li><a href="{% url 'category' %}">Harmful</a></li>
-                                            <li><a href="{% url 'category' %}">Technology</a></li>
-                                            <li><a href="{% url 'category' %}">Travel</a></li>
-                                            <li><a href="{% url 'category' %}">Food</a></li>
-                                            <li><a href="{% url 'category' %}">Creative</a></li>
+                                            {% for index in Categorys %}                                                                                                                               
+                                                <li><a href="/category/{{index.id}}">{{index.title}}</a></li>
+                                            {% endfor %} 
                                         </ul>
                                     </nav>
                                 </div>
@@ -817,16 +810,9 @@
                                     <div class="main-menu text-center">
                                         <nav>                                                
                                             <ul>                                                                                                                                     
-                                                <li><a href="{% url 'category' %}">Lifestyle</a></li>
-												<li><a href="{% url 'category' %}">Business</a></li>
-												<li><a href="{% url 'category' %}">Fashion</a></li>
-												<li><a href="{% url 'category' %}">Design</a></li>
-												<li><a href="{% url 'category' %}">Health</a></li>
-												<li><a href="{% url 'category' %}">Harmful</a></li>
-												<li><a href="{% url 'category' %}">Technology</a></li>
-												<li><a href="{% url 'category' %}">Travel</a></li>
-												<li><a href="{% url 'category' %}">Food</a></li>
-												<li><a href="{% url 'category' %}">Creative</a></li>
+                                                {% for index in Categorys %}                                                                                                                               
+                                                <li><a href="/category/{{index.id}}">{{index.title}}</a></li>
+                                            {% endfor %} 
                                             </ul>
                                         </nav>
                                     </div>
