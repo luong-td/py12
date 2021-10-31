@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xin Chào</title>
+    <style>
+        .news{
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Kết quả tìm kiếm của: {{search}}</h2>
+    <div class="news">
+        {% for new in news %}
+            <h1 class="news-title">{{new.title}}</h1>
+            <p class="news-context">{{new.detail_view}}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

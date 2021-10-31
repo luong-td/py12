@@ -46,10 +46,12 @@
                                 <div class="header-info-left">
                                     <li class="d-none d-lg-block">
                                         <div class="form-box f-right ">
-                                            <input type="text" name="Search" placeholder="Search your interest...">
-                                            <div class="search-icon">
-                                                <i class="ti-search"></i>
-                                            </div>
+                                            <form action="/search/" method="get" id='form'>
+                                                <input type="text" name="search" placeholder="Search your interest...">
+                                                <div class="search-icon" onclick="document.getElementById('form').submit();">
+                                                    <i class="ti-search"></i>
+                                                </div>
+                                            </form>
                                         </div>
                                      </li>
                                 </div>
