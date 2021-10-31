@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .models import Category, New
+from django.http import HttpResponse
+from django.shortcuts import *
+from .models import *
 import random
 
 # Create your views here.
@@ -119,3 +120,31 @@ def post_details(request, id):
         "new" : new
     }
     return render(request, 'post_details.html', context)
+
+def feedback(request):
+    if request.method == 'POST':
+        message = request.POST['message']
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        Feedback.objects.create(message=message, name=name, email=email, subject=subject)
+        return HttpResponse("<h1>Success</h1>")
+    return redirect('/contact')
+
+def search(request):
+    print(request.method)
+    if request.method == 'GET':
+        try:
+            search = request.GET['search'].lower().split()
+        except:
+            return redirect('/')
+            
+        news = New.objects.all()
+        res  = []
+        for new in news:
+            for text in search:
+                if text in new.title.lower():
+                    res.append(new)
+                    break
+        return render(request,'search.html', {'news':res, 'search':request.GET['search']})
+    return redirect('/')
