@@ -1,6 +1,12 @@
+from typing import ContextManager
 from django.http import HttpResponse
 from django.shortcuts import *
 from .models import *
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from news.forms import CommentForm
 import random
 
 # Create your views here.
@@ -36,6 +42,7 @@ def home(request):
         "Categorys" : categorys
     }
     return render(request, 'index.html', context)
+@login_required(login_url='login')
 
 def category(request, id):
     categorys = Category.objects.all()
@@ -55,6 +62,7 @@ def category(request, id):
         "last_Post" : last_post
     }
     return render(request, 'category.html', context)
+@login_required(login_url='login')
 
 def blog(request):
     categorys = Category.objects.all()
@@ -62,13 +70,15 @@ def blog(request):
         "Categorys" : categorys
     }
     return render(request, 'blog.html', context)
-
+@login_required(login_url='login')
 def blog_details(request):
     categorys = Category.objects.all()
     context = {
         "Categorys" : categorys
     }
+
     return render(request, 'blog_details.html', context)
+@login_required(login_url='login')
 
 def about(request):
     categorys = Category.objects.all()
@@ -76,6 +86,7 @@ def about(request):
         "Categorys" : categorys
     }
     return render(request, 'about.html', context)
+@login_required(login_url='login')
 
 def contact(request):
     categorys = Category.objects.all()
@@ -83,6 +94,7 @@ def contact(request):
         "Categorys" : categorys
     }
     return render(request, 'contact.html', context)
+@login_required(login_url='login')
 
 def elements(request):
     categorys = Category.objects.all()
@@ -90,20 +102,43 @@ def elements(request):
         "Categorys" : categorys
     }
     return render(request, 'elements.html', context)
-
+@login_required(login_url='login')
+ 
 def login(request):
-    categorys = Category.objects.all()
-    context = {
-        "Categorys" : categorys
-    }
-    return render(request, 'login.html', context)
+    if request.user.is_authenticated:
+        return redirect('home')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
 
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                login(request, user)
+                return redirect('home')
+            else:
+                messages.info(request, 'Username or password is incorrect')
+        context = {}
+        return render(request, 'login.html', context)
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
+@login_required(login_url='login')
 def sign_up(request):
-    categorys = Category.objects.all()
-    context = {
-        "Categorys" : categorys
-    }
-    return render(request, 'sin-up.html', context)
+    form = UserCreationForm()
+    if request.user.is_authenticated:
+        return redirect('home')
+    else:
+        if request.method == 'POST':
+            form = UserCreationForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request,'Account was created')
+                return redirect('login')     
+        context = {'form':form}
+        return render(request, 'sin-up.html', context)
+@login_required(login_url='login')
 
 def my_Main(request):
     categorys = Category.objects.all()
@@ -111,6 +146,7 @@ def my_Main(request):
         "Categorys" : categorys
     }
     return render(request, 'main.html', context)
+@login_required(login_url='login')
 
 def post_details(request, id):
     categorys = Category.objects.all()
@@ -119,7 +155,9 @@ def post_details(request, id):
         "Categorys" : categorys,
         "new" : new
     }
+    
     return render(request, 'post_details.html', context)
+@login_required(login_url='login')
 
 def feedback(request):
     if request.method == 'POST':
@@ -130,6 +168,7 @@ def feedback(request):
         Feedback.objects.create(message=message, name=name, email=email, subject=subject)
         return HttpResponse("<h1>Success</h1>")
     return redirect('/contact')
+@login_required(login_url='login')
 
 def search(request):
 
@@ -155,3 +194,4 @@ def search(request):
                     break
         return render(request,'search.html', {'news':res, 'search':request.GET['search'], 'last_Post' : last_post})
     return redirect('/', {'last_Post' : last_post})
+
