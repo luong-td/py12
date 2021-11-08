@@ -6,4 +6,3 @@ from .models import *
 admin.site.register(Category)
 admin.site.register(New)
 admin.site.register(Feedback)
-admin.site.register(Comment)
