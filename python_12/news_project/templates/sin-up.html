@@ -69,7 +69,7 @@
                                    <ul>                                          
                                        <li><a href="{% url 'about' %}">About</a></li>
                                        <li><a href="{% url 'contact' %}">Contact</a></li>
-                                       <li><a href="{% url 'login' %}">Log In  or  Sign Up</a></li>
+                                       
                                    </ul>
                                    <!-- Social -->
                                    <div class="header-social">
@@ -145,28 +145,34 @@
                                 <p>Create your account to get full access</p>
                             </div>
                             <!-- Single Input Fields -->
-                            <div class="input-box">
-                                <div class="single-input-fields">
-                                    <label>Full name</label>
-                                    <input type="text" placeholder="Enter full name">
+                            <form action='/sign-up/' method='POST'>
+                            {% csrf_token %}
+                                <div class="input-box">
+                                    <div class="single-input-fields">
+                                        <label>Username</label>
+                                        <input type="text" id="username" name ="username" placeholder="Enter username">
+                                    </div>
+                                    <div class="single-input-fields">
+                                        <label>Email Address</label>
+                                        <input type="text" id="email" name="email" placeholder="Enter email address" Required>
+
+                                    </div>
+                                    <div class="single-input-fields">
+                                        <label>Password</label>
+                                        <input type="Password" id="pass1" name="pass1" placeholder="Enter Password">
+                                    </div>
+                                    <div class="single-input-fields">
+                                        <label>Confirm Password</label>
+                                        <input type="Password" id="pass2" name="pass2" placeholder="Confirm Password">
+                                    </div>
                                 </div>
-                                <div class="single-input-fields">
-                                    <label>Email Address</label>
-                                    <input type="email" placeholder="Enter email address">
-                                </div>
-                                <div class="single-input-fields">
-                                    <label>Password</label>
-                                    <input type="password" placeholder="Enter Password">
-                                </div>
-                                <div class="single-input-fields">
-                                    <label>Confirm Password</label>
-                                    <input type="password" placeholder="Confirm Password">
-                                </div>
-                            </div>
-                            <!-- form Footer -->
-                            <div class="register-footer">
-                                <p> Already have an account? <a href="{% url 'login' %}"> Login</a> here</p>
-                                <button class="submit-btn3">Sign Up</button>
+                                {% for message in messages %}
+                                    <p id="messages">{{message}}</p>
+                                {% endfor %}                           
+                                <!-- form Footer -->
+                                <div class="register-footer">
+                                    <p> Already have an account? <a href="{% url 'signin' %}"> Login</a> here</p>
+                                    <button class="submit-btn3">Sign Up</button>
                             </div>
                         </div>
                     </div>

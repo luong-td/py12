@@ -69,7 +69,7 @@
                                    <ul>                                          
                                        <li><a href="{% url 'about' %}">About</a></li>
                                        <li><a href="{% url 'contact' %}">Contact</a></li>
-                                       <li><a href="{% url 'login' %}">Log In  or  Sign Up</a></li>
+                                       
                                    </ul>
                                    <!-- Social -->
                                    <div class="header-social">
@@ -145,25 +145,32 @@
                                 <p>Enter Login details to get access</p>
                             </div>
                             <!-- Single Input Fields -->
-                            <div class="input-box">
-                                <div class="single-input-fields">
-                                    <label>Username or Email Address</label>
-                                    <input type="text" placeholder="Username / Email address">
+                            <form action="/signin/" method="POST">
+                                {% csrf_token %}
+                                <div class="input-box">
+                                    <div class="single-input-fields">
+                                        <label>Username</label>
+                                        <input type="text" id="username" name="username" placeholder="Username" Required>
+                                        <br>
+                                    </div>
+                                    <div class="single-input-fields">
+                                        <label>Password</label>
+                                        <input type="password" id="pass1" name="pass1" placeholder="Enter Password" Required>
+                                        <br>
+                                    </div>
+                                    <div class="single-input-fields login-check">
+                                        <input type="checkbox" id="fruit1" name="keep-log">
+                                        <label for="fruit1">Keep me logged in</label>
+                                    <a href="#" class="f-right">Forgot Password?</a>
+                                    </div>
                                 </div>
-                                <div class="single-input-fields">
-                                    <label>Password</label>
-                                    <input type="password" placeholder="Enter Password">
-                                </div>
-                                <div class="single-input-fields login-check">
-                                    <input type="checkbox" id="fruit1" name="keep-log">
-                                    <label for="fruit1">Keep me logged in</label>
-                                <a href="#" class="f-right">Forgot Password?</a>
-                                </div>
-                            </div>
-                            <!-- form Footer -->
-                            <div class="login-footer">
-                                <p>Don’t have an account? <a href="{% url 'sign-up' %}">Sign Up</a>  here</p>
-                                <button class="submit-btn3">Login</button>
+                                {% for message in messages %}
+                                    <p id="messages">{{message}}</p>
+                                {% endfor %}
+                                <!-- form Footer -->
+                                <div class="login-footer">
+                                    <p>Don’t have an account? <a href="{% url 'sign-up' %}">Sign Up</a>  here</p>
+                                    <button class="submit-btn3">Login</button>  
                             </div>
                         </div>
                     </div>

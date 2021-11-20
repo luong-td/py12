@@ -69,7 +69,12 @@
                                    <ul>                                          
                                        <li><a href="{% url 'about' %}">About</a></li>
                                        <li><a href="{% url 'contact' %}">Contact</a></li>
-                                       <li><a href="{% url 'login' %}">Log In  or  Sign Up</a></li>
+                                       {% if user.is_authenticated %}
+                                            <span> Welcome, {{request.user}}!</span>
+                                            <li><a href="{% url 'signin' %}">Logout</a></li>
+                                       {% else %}
+                                            <li><a href="{% url 'signin' %}">Login or Signup</a></li>
+                                       {% endif %}
                                    <!-- Social -->
                                    <div class="header-social">
                                         <a href="#"><i class="fab fa-twitter"></i></a>
